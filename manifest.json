@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "AntiProcrastinationExtension",
+  "version": "1.0",
+  "description": "Boost your productivity and beat procrastination. This extension detects and blocks time-wasting sites such as YouTube, Reddit, Twitter, Facebook, and Instagram.",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "https://www.youtube.com/*",
+    "https://twitter.com/*",
+    "https://www.instagram.com/*",
+    "https://www.reddit.com/*",
+    "https://www.facebook.com/*",
+    "https://www.tiktok.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://twitter.com/*"],
+      "js": ["content.js"]
+    }
+  ],  
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "Activate AntiProcrastinationExtension"
+  },
+  "web_accessible_resources": [
+    "block.html"
+  ]
+  
+}
